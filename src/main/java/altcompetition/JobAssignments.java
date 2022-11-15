@@ -30,6 +30,8 @@ public class JobAssignments extends CompetitionTest {
      * Number of jobs <= 100
      */
     public final int assignJobs(List<String> employees, List<Set<String>> jobs) {
+        // BIPARTITE GRAPH? Employee nodes vs Job nodes -> Edges links Employee who can do the Job
+        // 
         return -1;
     }
 
