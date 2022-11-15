@@ -15,10 +15,11 @@ public class PriceStability extends CompetitionTest {
     /**
      * Your task is to find periods of price stability within a given threshold
      *
-     * Given a list of prices and a threshold k, find the longest period where
-     * the minimum and maximum price do not differ by k or more.
+     * Given a list of prices and a threshold k, find the longest period where the
+     * price is "stable", i.e. the minimum and maximum price do not differ by k or more.
      *
-     * Your function should return the average of all the prices in this period.
+     * Your function should return the arithmetic mean of the prices in this period,
+     * formatted to 2 decimal places.
      *
      * Number of prices <= 100,000
      * 1 <= k <= 1,500

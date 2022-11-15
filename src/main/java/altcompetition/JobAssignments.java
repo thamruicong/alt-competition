@@ -21,13 +21,13 @@ public class JobAssignments extends CompetitionTest {
     /**
      * You are provided with a list of employees and list of job tickets.
      * Each job contains a list of employees needed to complete the job.
-     * Assuming jobs can't be executed in parallel if they share any employees,
-     * What is the maximum number of jobs that can be performed concurrently?
+     * Assuming an employee can only work on one job at a time,
+     * what is the maximum number of jobs that can be performed concurrently?
      *
      * Number of employees <= 2^6
      * Name of each employee is 4-10 characters
      *
-     * Number of jobs <= 2^6
+     * Number of jobs <= 100
      */
     public final int assignJobs(List<String> employees, List<Set<String>> jobs) {
         return -1;

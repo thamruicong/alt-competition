@@ -22,10 +22,11 @@ public class OrderBooks extends CompetitionTest {
      *
      * The format of the transactions will be the order type, followed by the
      * ammount, followed by the price per unit (to two decimal places)
-     * For example: "BUY-XXX-XXXXX.XX" and "SELL-XXX-XXXX.XX"
+     * For example: "BUY-128-12600.25" or "SELL-1-44.56"
      *
-     * Size of orders <= 100,000
-     * Number of orders ~500
+     * Size of each order <= 500
+     * Each price <= 10^5
+     * Number of orders <= 5 * 10^6
      */
     public final String processOrderBooks(List<String> orders) {
         return null;

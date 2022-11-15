@@ -18,7 +18,7 @@ public class MinimumDelta extends CompetitionTest {
      * second.
      *
      * You have 3 operations at your disposal, all equal in cost:
-     * Adding, removing and substituting characters
+     * Inserting, deleting and substituting characters
      *
      * Length of each string <= 20,000
      */
