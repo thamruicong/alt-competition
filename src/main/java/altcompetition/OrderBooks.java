@@ -1,6 +1,10 @@
 package altcompetition;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.lang.Comparable;
 
 public class OrderBooks extends CompetitionTest {
 
@@ -29,6 +33,98 @@ public class OrderBooks extends CompetitionTest {
      * Number of orders <= 5 * 10^6
      */
     public final String processOrderBooks(List<String> orders) {
-        return null;
+        // IDEA: have 2 data structures, max heap and min heap for BUY and SELL respectively (TBC)
+        // Iterate across orders, determine if it is BUY or SELL order
+        // if BUY,
+        // compare across SELL heap, if order matches (BUY > SELL), then add to total amount of money spent
+        // and update data structure
+        // repeat until SELL heap is empty(ie no more SELL orders to match) or if current order does not match
+        // if SELL, similar
+        // return total at the end
+        // should be O(n), where n is the length of orders
+        
+        class Order implements Comparable<Order> {
+            private final int amount;
+            private final double price;
+
+            public Order(int amount, double price) {
+                this.amount = amount;
+                this.price = price;
+            }
+
+            public int compareTo(Order o) {
+                double res = this.price - o.price;
+                return res > 0 ? -1 : res < 0 ? 1 : 0;
+            }
+
+            public int getAmount() {
+                return this.amount;
+            }
+
+            public double getPrice() {
+                return this.price;
+            }
+        }
+
+
+        PriorityQueue<Order> BUYHeap = new PriorityQueue<>();
+        PriorityQueue<Order> SELLHeap = new PriorityQueue<>(Collections.reverseOrder());
+        float totalSpent = 0;
+
+        for (int i = 0; i < orders.size(); i++) {
+            String[] currOrder = orders.get(i).split("-");
+            int currAmount = Integer.parseInt(currOrder[1]);
+            double currPrice = Double.parseDouble(currOrder[2]);
+
+            if (currOrder[0].equals("BUY")) {
+                while (currAmount > 0 && !SELLHeap.isEmpty() && SELLHeap.peek().getPrice() < currPrice) {
+                    Order SELLorder = SELLHeap.poll();
+                    int amountToBuy = Math.min(currAmount, SELLorder.getAmount());
+                    totalSpent += amountToBuy * SELLorder.getPrice();
+                    currAmount -= amountToBuy;
+                    int sellAmount = SELLorder.getAmount() - amountToBuy;
+
+                    if (sellAmount > 0) {
+                        SELLHeap.add(new Order(sellAmount, SELLorder.getPrice()));
+                    }
+                }
+
+                if (currAmount > 0) {
+                    BUYHeap.add(new Order(currAmount, currPrice));
+                }
+
+            } else {
+                // currOrder[0] == "SELL"
+                while (currAmount > 0 && !BUYHeap.isEmpty() && BUYHeap.peek().getPrice() > currPrice) {
+                    Order BUYorder = BUYHeap.poll();
+                    int amountToBuy = Math.min(currAmount, BUYorder.getAmount());
+                    totalSpent += amountToBuy * currPrice;
+                    currAmount -= amountToBuy;
+                    int buyAmount = BUYorder.getAmount() - amountToBuy;
+
+                    if (buyAmount > 0) {
+                        BUYHeap.add(new Order(buyAmount, BUYorder.getPrice()));
+                    }
+                }
+
+                if (currAmount > 0) {
+                    SELLHeap.add(new Order(currAmount, currPrice));
+                }
+
+            }
+        }
+
+        return Float.toString(totalSpent);
     }
+
+    // public static void main(String[] args) {
+    //     List<String> orders = new ArrayList<String>();
+    //     orders.add("BUY-128-12600.25");
+    //     orders.add("SELL-10-44000.56");
+    //     orders.add("SELL-10-34000.56");
+    //     orders.add("SELL-10-4000.56");
+    //     orders.add("BUY-128-36600.25");
+        
+    //     System.out.println(new OrderBooks().processOrderBooks(orders));
+    // }
 }
