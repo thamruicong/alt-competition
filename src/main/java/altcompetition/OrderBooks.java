@@ -29,6 +29,15 @@ public class OrderBooks extends CompetitionTest {
      * Number of orders <= 5 * 10^6
      */
     public final String processOrderBooks(List<String> orders) {
+        // IDEA: have 2 data structures, min heap and max heap for BUY and SELL respectively (TBC)
+        // Iterate across orders, determine if it is BUY or SELL order
+        // if BUY,
+        // compare across SELL heap, if order matches (TBC), then add to total amount of money spent
+        // and update data structure
+        // repeat until SELL heap is empty(ie no more SELL orders to match) or if current order does not match
+        // if SELL, similar
+        // return total at the end
+        // should be O(n), where n is the length of orders
         return null;
     }
 }
