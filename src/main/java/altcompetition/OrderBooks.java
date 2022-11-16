@@ -42,6 +42,9 @@ public class OrderBooks extends CompetitionTest {
         // if SELL, similar
         // return total at the end
         // should be O(n), where n is the length of orders
+
+        // ISSUE: CURRENTLY LOWEST SELLING PRICE ALWAYS CHOSEN
+        // SHOULD BE "closest sell price"
         
         class Order implements Comparable<Order> {
             private final int amount;
@@ -117,14 +120,15 @@ public class OrderBooks extends CompetitionTest {
         return Float.toString(totalSpent);
     }
 
-    // public static void main(String[] args) {
-    //     List<String> orders = new ArrayList<String>();
-    //     orders.add("BUY-128-12600.25");
-    //     orders.add("SELL-10-44000.56");
-    //     orders.add("SELL-10-34000.56");
-    //     orders.add("SELL-10-4000.56");
-    //     orders.add("BUY-128-36600.25");
+    public static void main(String[] args) {
+        List<String> orders = new ArrayList<String>();
+        orders.add("BUY-11-10.00");
+        orders.add("SELL-10-9.00");
+        orders.add("SELL-1-1");
+        orders.add("SELL-10-100");
+        orders.add("SELL-2-90.00");
+        orders.add("BUY-11-140.00");
         
-    //     System.out.println(new OrderBooks().processOrderBooks(orders));
-    // }
+        System.out.println(new OrderBooks().processOrderBooks(orders));
+    }
 }
