@@ -15,7 +15,7 @@ public class OrderBooks extends CompetitionTest {
      *
      * When there are orders on opposite sides that cross (e.g. a bid to buy
      * which is higher than an offer to sell), the orders should be matched and a
-     * transaction occurs at the closest sell price. Transactions should continue to
+     * transaction occurs at the lowest sell price. Transactions should continue to
      * be made until the condition no longer holds true.
      *
      * Your function should return the total amount of money spent.
