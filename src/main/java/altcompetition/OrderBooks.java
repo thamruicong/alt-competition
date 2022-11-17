@@ -117,22 +117,22 @@ public class OrderBooks extends CompetitionTest {
         return String.format("%.2f", totalSpent);
     }
 
-    public static void main(String[] args) {
-        List<String> orders = new ArrayList<String>();
-        orders.add("BUY-11-10.00");
-        orders.add("SELL-10-9.00");
-        orders.add("SELL-1-1");
-        orders.add("SELL-10-100");
-        orders.add("SELL-2-90.00");
-        orders.add("BUY-11-140.00");
+    // public static void main(String[] args) {
+    //     List<String> orders = new ArrayList<String>();
+    //     orders.add("BUY-11-10.00");
+    //     orders.add("SELL-10-9.00");
+    //     orders.add("SELL-1-1");
+    //     orders.add("SELL-10-100");
+    //     orders.add("SELL-2-90.00");
+    //     orders.add("BUY-11-140.00");
         
-        System.out.println(new OrderBooks().processOrderBooks(orders));
+    //     System.out.println(new OrderBooks().processOrderBooks(orders));
 
-        List<String> orders2 = new ArrayList<String>();
-        orders2.add("BUY-11-10.00");
-        orders2.add("SELL-10-9.00");
-        orders2.add("SELL-1-1");
+    //     List<String> orders2 = new ArrayList<String>();
+    //     orders2.add("BUY-11-10.00");
+    //     orders2.add("SELL-10-9.00");
+    //     orders2.add("SELL-1-1");
         
-        System.out.println(new OrderBooks().processOrderBooks(orders2));
-    }
+    //     System.out.println(new OrderBooks().processOrderBooks(orders2));
+    // }
 }
