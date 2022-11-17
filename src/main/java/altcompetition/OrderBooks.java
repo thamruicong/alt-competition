@@ -114,17 +114,25 @@ public class OrderBooks extends CompetitionTest {
             }
         }
 
-        return Float.toString(totalSpent);
+        return String.format("%.2f", totalSpent);
     }
 
     // public static void main(String[] args) {
     //     List<String> orders = new ArrayList<String>();
-    //     orders.add("BUY-128-12600.25");
-    //     orders.add("SELL-10-44000.56");
-    //     orders.add("SELL-10-34000.56");
-    //     orders.add("SELL-10-4000.56");
-    //     orders.add("BUY-128-36600.25");
+    //     orders.add("BUY-11-10.00");
+    //     orders.add("SELL-10-9.00");
+    //     orders.add("SELL-1-1");
+    //     orders.add("SELL-10-100");
+    //     orders.add("SELL-2-90.00");
+    //     orders.add("BUY-11-140.00");
         
     //     System.out.println(new OrderBooks().processOrderBooks(orders));
+
+    //     List<String> orders2 = new ArrayList<String>();
+    //     orders2.add("BUY-11-10.00");
+    //     orders2.add("SELL-10-9.00");
+    //     orders2.add("SELL-1-1");
+        
+    //     System.out.println(new OrderBooks().processOrderBooks(orders2));
     // }
 }
