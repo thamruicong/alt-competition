@@ -103,68 +103,21 @@ public class OrderBooks extends CompetitionTest {
         }
 
         return String.format("%.2f", totalSpent);
-
-        /*
-        for (int i = 0; i < orders.size(); i++) {
-            String[] currOrder = orders.get(i).split("-");
-            int currAmount = Integer.parseInt(currOrder[1]);
-            double currPrice = Double.parseDouble(currOrder[2]);
-
-            if (currOrder[0].equals("BUY")) {
-                while (currAmount > 0 && !SELLHeap.isEmpty() && SELLHeap.peek().getPrice() < currPrice) {
-                    Order SELLorder = SELLHeap.poll();
-                    int amountToBuy = Math.min(currAmount, SELLorder.getAmount());
-                    totalSpent += amountToBuy * SELLorder.getPrice();
-                    currAmount -= amountToBuy;
-                    int sellAmount = SELLorder.getAmount() - amountToBuy;
-
-                    if (sellAmount > 0) {
-                        SELLHeap.add(new Order(sellAmount, SELLorder.getPrice()));
-                    }
-                }
-
-                if (currAmount > 0) {
-                    BUYHeap.add(new Order(currAmount, currPrice));
-                }
-
-            } else {
-                // currOrder[0] == "SELL"
-                while (currAmount > 0 && !BUYHeap.isEmpty() && BUYHeap.peek().getPrice() > currPrice) {
-                    Order BUYorder = BUYHeap.poll();
-                    int amountToBuy = Math.min(currAmount, BUYorder.getAmount());
-                    totalSpent += amountToBuy * currPrice;
-                    currAmount -= amountToBuy;
-                    int buyAmount = BUYorder.getAmount() - amountToBuy;
-
-                    if (buyAmount > 0) {
-                        BUYHeap.add(new Order(buyAmount, BUYorder.getPrice()));
-                    }
-                }
-
-                if (currAmount > 0) {
-                    SELLHeap.add(new Order(currAmount, currPrice));
-                }
-
-            }
-        }
-
-        return String.format("%.2f", totalSpent);
-        */
     }
 
-    public static void main(String[] args) {
-        List<String> orders = new ArrayList<String>();
-        orders.add("SELL-10-100");
-        orders.add("SELL-2-90.00");
-        orders.add("BUY-11-140.00");
+    // public static void main(String[] args) {
+    //     List<String> orders = new ArrayList<String>();
+    //     orders.add("SELL-10-100");
+    //     orders.add("SELL-2-90.00");
+    //     orders.add("BUY-11-140.00");
         
-        System.out.println(new OrderBooks().processOrderBooks(orders));
+    //     System.out.println(new OrderBooks().processOrderBooks(orders));
 
-        List<String> orders2 = new ArrayList<String>();
-        orders2.add("BUY-11-9.00");
-        orders2.add("SELL-10-9.00");
-        orders2.add("SELL-1-1");
+    //     List<String> orders2 = new ArrayList<String>();
+    //     orders2.add("BUY-11-9.00");
+    //     orders2.add("SELL-10-9.00");
+    //     orders2.add("SELL-1-1");
         
-        System.out.println(new OrderBooks().processOrderBooks(orders2));
-    }
+    //     System.out.println(new OrderBooks().processOrderBooks(orders2));
+    // }
 }
