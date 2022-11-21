@@ -102,7 +102,7 @@ public class OrderBooks extends CompetitionTest {
             }
         }
 
-        return Float.toString(totalSpent);
+        return String.format("%.2f", totalSpent);
     }
 
     // public static void main(String[] args) {
@@ -114,9 +114,13 @@ public class OrderBooks extends CompetitionTest {
     //     System.out.println(new OrderBooks().processOrderBooks(orders));
 
     //     List<String> orders2 = new ArrayList<String>();
-    //     orders2.add("BUY-11-9.00");
-    //     orders2.add("SELL-10-9.00");
-    //     orders2.add("SELL-1-1");
+    //     orders2.add("SELL-1-9");
+    //     orders2.add("SELL-1-10");
+    //     orders2.add("SELL-1-11");
+    //     orders2.add("SELL-1-12");
+    //     orders2.add("BUY-1-2");
+    //     orders2.add("BUY-3-10");
+    //     orders2.add("SELL-10-5");
         
     //     System.out.println(new OrderBooks().processOrderBooks(orders2));
     // }
