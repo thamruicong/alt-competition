@@ -112,7 +112,7 @@ public class PriceStability extends CompetitionTest {
             }
         }
         
-        System.out.println(rangeLow + ", " + rangeHigh);
+        // System.out.println(rangeLow + ", " + rangeHigh);
 
         int total = 0;
 
