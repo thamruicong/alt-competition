@@ -122,7 +122,7 @@ public class PriceStability extends CompetitionTest {
 
         float average = total / (float) (rangeHigh - rangeLow + 1);
 
-        return Float.toString(average);
+        return String.format("%.2f", average);
     }
 
     // public static void main(String[] args) {
