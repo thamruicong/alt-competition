@@ -102,7 +102,7 @@ public class OrderBooks extends CompetitionTest {
             }
         }
 
-        return String.format("%.2f", totalSpent);
+        return Float.toString(totalSpent);
     }
 
     // public static void main(String[] args) {
