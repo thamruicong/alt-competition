@@ -101,13 +101,8 @@ public class OrderBooks extends CompetitionTest {
                 }
             }
         }
-
-        if ((int) totalSpent - totalSpent == 0) {
-            return Integer.toString((int) totalSpent);
-        } else {
-            return Float.toString(totalSpent);
-        }
-        // return String.format("%.2f", totalSpent);
+        
+        return String.format("%.2f", totalSpent);
     }
 
     public static void main(String[] args) {
